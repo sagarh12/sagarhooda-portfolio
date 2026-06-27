@@ -30,7 +30,7 @@ export const stats: {
   decimals?: number;
 }[] = [
   { value: 4, suffix: "", label: "Roles / Internships" },
-  { value: 3, suffix: "", label: "Flagship Projects" },
+  { value: 5, suffix: "", label: "Flagship Projects" },
   { value: 4, suffix: "", label: "Certifications" },
 ];
 
@@ -96,29 +96,50 @@ export type Project = {
   blurb: string;
   stack: string[];
   metric: string;
+  github?: string;
+  demo?: string;
 };
 
 export const projects: Project[] = [
   {
+    title: "lifeOS",
+    blurb:
+      "A full-stack personal \"operating system\" for tracking habits, goals, fitness, and nutrition — featuring an AI food & coach assistant and social groups with leaderboards. Built with email-verified auth and hardened Firestore security rules.",
+    stack: ["Next.js", "Firebase", "TypeScript", "Vitest"],
+    metric: "AI-powered · Firestore security rules · tested",
+    github: "https://github.com/sagarh12/lifeOS",
+  },
+  {
+    title: "Kanban + AI Assistant",
+    blurb:
+      "A full-stack Kanban board with drag-and-drop, JWT-secured accounts, and an OpenAI-powered assistant that helps plan and break down tasks — tested end to end across a Next.js frontend and FastAPI backend.",
+    stack: ["Next.js", "FastAPI", "OpenAI", "JWT"],
+    metric: "AI assistant · JWT auth · unit + e2e tests",
+    github: "https://github.com/sagarh12/kanban",
+  },
+  {
     title: "York University Parking System",
     blurb:
-      "Desktop parking-management platform handling 500+ slots, built on a clean MVC + Singleton architecture with JSON persistence and full UML documentation.",
-    stack: ["Java", "MVC", "Singleton", "JSON", "JUnit"],
-    metric: "30% fewer integration errors · 50+ test cases",
+      "A Java desktop parking-management application with a Swing GUI, built on clean MVC architecture and six classic design patterns: Factory, Strategy, Decorator, Command, Observer, and Singleton.",
+    stack: ["Java", "Swing", "MVC", "OOP"],
+    metric: "6 design patterns · 48 classes · compiles clean",
+    github: "https://github.com/sagarh12/yorku-parking-system",
   },
   {
-    title: "Stock Market Price Prediction",
+    title: "Stock Market Price Predictor",
     blurb:
-      "LSTM neural network forecasting next-day equity prices, trained on live market data pulled via yfinance with engineered time-series features.",
-    stack: ["Python", "TensorFlow", "Keras", "LSTM", "yfinance"],
-    metric: ">50% next-day directional accuracy",
+      "An LSTM neural network forecasting next-day closing prices, with a proper train/test split, dropout regularization, and honest evaluation (RMSE, MAPE, directional accuracy) plus a predicted-vs-actual chart.",
+    stack: ["Python", "TensorFlow", "scikit-learn", "LSTM"],
+    metric: "~4% MAPE on held-out test data",
+    github: "https://github.com/sagarh12/stock-market-predictor",
   },
   {
-    title: "Inventory Management System",
+    title: "prelegal",
     blurb:
-      "Java full-stack inventory platform tracking 100+ SKUs with automated audit reporting and a streamlined stock-reconciliation workflow.",
-    stack: ["Java", "Full-Stack", "MySQL", "Automation"],
-    metric: "40% less manual processing",
+      "A web app for drafting common legal documents from guided templates, with live preview and one-click export to print-ready PDF.",
+    stack: ["Next.js", "React", "jsPDF"],
+    metric: "Template-driven · PDF export · in progress",
+    github: "https://github.com/sagarh12/prelegal",
   },
 ];
 
@@ -131,7 +152,18 @@ export const skills: { category: string; items: string[]; accent: "primary" | "s
   {
     category: "Web & AI",
     accent: "secondary",
-    items: ["React", "Next.js", "Node.js", "HTML/CSS", "Ollama", "CMS", "Mailchimp"],
+    items: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "FastAPI",
+      "Firebase",
+      "OpenAI",
+      "Ollama",
+      "HTML/CSS",
+      "CMS",
+      "Mailchimp",
+    ],
   },
   {
     category: "Cybersecurity",
