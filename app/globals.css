@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0a0a;
+  --card: #111111;
+  --primary: #00ff88;
+  --secondary: #00e5ff;
+  --body: #e0e0e0;
+  --muted: #444444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--body);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background: rgba(0, 255, 136, 0.25);
+  color: #ffffff;
+}
+
+/* ---------- Custom scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ff8855, #00e5ff55);
+  border-radius: 8px;
+  border: 2px solid #050505;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00ff88aa, #00e5ffaa);
+}
+
+@layer components {
+  /* Dot-grid texture for the hero */
+  .dot-grid {
+    background-image: radial-gradient(
+      rgba(0, 255, 136, 0.12) 1px,
+      transparent 1px
+    );
+    background-size: 28px 28px;
+  }
+
+  /* Faint line-grid texture */
+  .line-grid {
+    background-image: linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Neon text */
+  .text-glow-primary {
+    color: var(--primary);
+    text-shadow: 0 0 18px rgba(0, 255, 136, 0.55);
+  }
+  .text-glow-secondary {
+    color: var(--secondary);
+    text-shadow: 0 0 18px rgba(0, 229, 255, 0.55);
+  }
+
+  /* Section eyebrow label like a terminal prompt */
+  .eyebrow {
+    @apply font-mono text-sm uppercase tracking-[0.35em] text-primary/80;
+  }
+
+  /* Glassy terminal chrome */
+  .terminal-chrome {
+    background: rgba(17, 17, 17, 0.85);
+    border: 1px solid rgba(0, 255, 136, 0.18);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 24px 60px -20px rgba(0, 0, 0, 0.9),
+      0 0 40px -12px rgba(0, 255, 136, 0.25);
+    backdrop-filter: blur(8px);
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-md border px-3 py-1 font-mono text-xs tracking-wide transition-all duration-300;
+  }
+}
+
+/* Grain overlay for cinematic depth */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Radial vignette helper */
+.vignette {
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 40%,
+    transparent 0%,
+    rgba(10, 10, 10, 0.4) 70%,
+    #0a0a0a 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
