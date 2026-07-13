@@ -30,7 +30,7 @@ export const stats: {
   decimals?: number;
 }[] = [
   { value: 4, suffix: "", label: "Roles / Internships" },
-  { value: 5, suffix: "", label: "Flagship Projects" },
+  { value: 6, suffix: "", label: "Flagship Projects" },
   { value: 4, suffix: "", label: "Certifications" },
 ];
 
@@ -101,6 +101,15 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: "AI Alert Triage Copilot",
+    blurb:
+      "A SOC tool that automates the alert-triage layer with AI: it ingests QRadar-style offenses, grounds each to a real MITRE ATT&CK technique, and returns a priority with reasoning, next steps, and a hunting query. Built from my Toronto Hydro SIEM work.",
+    stack: ["Next.js", "TypeScript", "Claude", "MITRE ATT&CK"],
+    metric: "ATT&CK-grounded · structured AI triage · analyst queue",
+    github: "https://github.com/sagarh12/ai-alert-triage-copilot",
+    demo: "https://ai-alert-triage-copilot.vercel.app",
+  },
   {
     title: "lifeOS",
     blurb:
